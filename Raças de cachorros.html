@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha sua Raça de Cachorro</title>
+</head>
+<body>
+
+    <h1>Escolha a Raça do Cachorro</h1>
+
+    <label for="raca">Escolha a Raça:</label>
+    <select id="raca">
+        <option value="Labrador">Labrador</option>
+        <option value="Poodle">Poodle</option>
+        <option value="Bulldog">Bulldog</option>
+        <option value="Pastor Alemão">Pastor Alemão</option>
+    </select>
+
+    <label for="cor">Escolha a Cor:</label>
+    <select id="cor">
+        <option value="Amarelo">Amarelo</option>
+        <option value="Branco">Branco</option>
+        <option value="Cinza">Cinza</option>
+        <option value="Preto e Marrom">Preto e Marrom</option>
+    </select>
+
+    <button onclick="mostrarInformacoes()">Ver Informações</button>
+
+    <div id="info">
+        <p><strong>Raça:</strong> <span id="infoRaca"></span></p>
+        <p><strong>Cor:</strong> <span id="infoCor"></span></p>
+        <p><strong>Descrição:</strong> <span id="descricao"></span></p>
+    </div>
+
+    <script>
+        function mostrarInformacoes() {
+            const racaSelecionada = document.getElementById("raca").value;
+            const corSelecionada = document.getElementById("cor").value;
+
+            let descricao = "";
+
+            switch (racaSelecionada) {
+                case "Labrador":
+                    descricao = "Cão amigável e ativo, ideal para famílias.";
+                    break;
+                case "Poodle":
+                    descricao = "Inteligente e elegante, ótimo para competições.";
+                    break;
+                case "Bulldog":
+                    descricao = "Fortes e corajosos, mas muito leais.";
+                    break;
+                case "Pastor Alemão":
+                    descricao = "Cão de trabalho, usado em forças policiais e militares.";
+                    break;
+                default:
+                    descricao = "Raça não selecionada.";
+            }
+
+            document.getElementById("infoRaca").textContent = racaSelecionada;
+            document.getElementById("infoCor").textContent = corSelecionada;
+            document.getElementById("descricao").textContent = descricao;
+        }
+    </script>
+
+</body>
+</html>
