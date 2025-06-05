@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha sua Raça de Cachorro</title>
+    <style>
+        #info {
+            margin-top: 20px;
+        }
+
+        #imagemCachorro {
+            max-width: 300px;
+            margin-top: 10px;
+            display: none; 
+        }
+    </style>
 </head>
 <body>
 
@@ -31,6 +42,9 @@
         <p><strong>Raça:</strong> <span id="infoRaca"></span></p>
         <p><strong>Cor:</strong> <span id="infoCor"></span></p>
         <p><strong>Descrição:</strong> <span id="descricao"></span></p>
+        
+      
+        <img id="imagemCachorro" src="" alt="">
     </div>
 
     <script>
@@ -39,27 +53,50 @@
             const corSelecionada = document.getElementById("cor").value;
 
             let descricao = "";
+            let imagem = "";
+            let altImagem = "";
 
+            
             switch (racaSelecionada) {
                 case "Labrador":
                     descricao = "Cão amigável e ativo, ideal para famílias.";
+                    imagem = "imagens/labrador.jpg";
+                    altImagem = "Labrador de cor amarela";
                     break;
                 case "Poodle":
                     descricao = "Inteligente e elegante, ótimo para competições.";
+                    imagem = "imagens/poodle.jpg";
+                    altImagem = "Poodle branco de porte médio";
                     break;
                 case "Bulldog":
                     descricao = "Fortes e corajosos, mas muito leais.";
+                    imagem = "imagens/bulldog.jpg";
+                    altImagem = "Bulldog inglês sentado em casa";
                     break;
                 case "Pastor Alemão":
                     descricao = "Cão de trabalho, usado em forças policiais e militares.";
+                    imagem = "imagens/pastor_alemao.jpg";
+                    altImagem = "Pastor Alemão em área gramada";
                     break;
                 default:
+                    imagem = "";
+                    altImagem = "";
                     descricao = "Raça não selecionada.";
             }
 
+            
             document.getElementById("infoRaca").textContent = racaSelecionada;
             document.getElementById("infoCor").textContent = corSelecionada;
             document.getElementById("descricao").textContent = descricao;
+
+            const img = document.getElementById("imagemCachorro");
+            if (imagem) {
+                img.src = imagem;
+                img.alt = altImagem;
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
         }
     </script>
 
